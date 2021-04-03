@@ -3,8 +3,6 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
-    id 'kotlin-parcelize'
-    id 'org.jetbrains.kotlin.android'
 }
 
 def cprops = new Properties()
@@ -23,16 +21,8 @@ android {
     }
 
     buildTypes {
-        debug {
-            debuggable true
-            minifyEnabled false
-            shrinkResources false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
         release {
-            debuggable false
-            minifyEnabled true
-            shrinkResources true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -40,16 +30,16 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
-        kotlinOptions {
-            jvmTarget = "1.8"
-        }
+    kotlinOptions {
+        jvmTarget = '1.8'
+        useIR = true
     }
     buildFeatures {
         compose true
     }
     composeOptions {
         kotlinCompilerExtensionVersion composeVersion
+        kotlinCompilerVersion '1.4.30'
     }
 
 
@@ -72,17 +62,17 @@ android {
     productFlavors {
         development {
             dimension "env"
-            applicationId "com.abrahamlay.movielicious.movieliciouscompose.dev"
+            applicationId "com.abrahamlay.movielicious.dev"
             buildConfigField("String", "API_BASE_URL", config.env.dev.baseurl)
         }
         staging {
             dimension "env"
-            applicationId "com.abrahamlay.movielicious.movieliciouscompose.dev"
+            applicationId "com.abrahamlay.movielicious.dev"
             buildConfigField("String", "API_BASE_URL", config.env.staging.baseurl)
         }
         production {
             dimension "env"
-            applicationId 'com.abrahamlay.movielicious.movieliciouscompose'
+            applicationId 'com.abrahamlay.movielicious'
             buildConfigField("String", "API_BASE_URL", config.env.prod.baseurl)
         }
     }
@@ -91,24 +81,19 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation kotlinStdLib
-    implementation project(':domain')
-    implementation project(':data')
 
-    //network
-    implementation libs.retrofit
-    implementation libs.okhttp
-    implementation libs.gson
     //androidx
     implementation support.appcompat
     implementation support.constraint
     implementation support.recyclerview
     implementation support.core
     implementation support.design
-    implementation support.activityCompose
+
+    def androidx_ui = "1.0.0-alpha07"
+    implementation "androidx.ui:ui-tooling:$androidx_ui"
 
     //compose
     implementation compose.ui
-    implementation compose.tooling
     implementation compose.foundation
     implementation compose.runtime
     implementation compose.livedata
@@ -123,15 +108,6 @@ dependencies {
     implementation libs.retrofit
     implementation libs.okhttp
     implementation libs.gson
-
-    //rxjava
-    implementation libs.rxjava
-
-    //database
-    implementation support.room
-    kapt support.roomCompiler
-//    implementation support.roomCommon
-//    implementation support.roomRxJava
 
     //hilt
     implementation libs.hiltAndroid
