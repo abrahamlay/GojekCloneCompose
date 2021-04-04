@@ -3,7 +3,6 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
-    id 'kotlin-parcelize'
 }
 
 android {
@@ -21,13 +20,19 @@ android {
         debug {
             debuggable true
             minifyEnabled false
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         release {
             debuggable false
             minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
         jvmTarget = '1.8'
@@ -37,9 +42,6 @@ android {
 dependencies {
     implementation kotlinStdLib
 
-
-    implementation project(':domain')
-
     //network
     implementation libs.retrofit
     implementation libs.okhttp
@@ -48,16 +50,6 @@ dependencies {
     //hilt
     implementation libs.hiltAndroid
     kapt libs.hiltCompilerAndroid
-
-    //rxjava
-    implementation libs.rxjava
-
-
-    //database
-//    implementation support.room
-//    kapt support.roomCompiler
-//    implementation support.roomCommon
-//    implementation support.roomRxJava
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

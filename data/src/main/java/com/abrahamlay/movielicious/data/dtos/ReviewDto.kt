@@ -1,7 +1,6 @@
-package com.abrahamlay.movielicious.data.dtos
+package com.abrahamlay.data.dtos
 
 
-import com.abrahamlay.movielicious.data.dtos.ResultReview
 import com.google.gson.annotations.SerializedName
 
 data class ReviewDto(
