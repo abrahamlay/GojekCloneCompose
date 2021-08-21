@@ -1,0 +1,4 @@
+rootProject.name = "Movielicious Compose"
+include ':app'
+include ':data'
+include ':domain'
