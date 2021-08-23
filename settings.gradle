@@ -1,4 +1,4 @@
-rootProject.name = "Movielicious Compose"
+rootProject.name = "Gojek Clone Compose"
 include ':app'
 include ':data'
 include ':domain'

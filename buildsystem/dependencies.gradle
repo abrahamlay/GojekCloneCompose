@@ -13,7 +13,7 @@ ext {
     okhttpVersion = "3.12.1"
     gsonVersion = '2.8.1'
     androidAnnotationsVersion = '29.0.1'
-    glideVersion = "4.8.0"
+    glideVersion = "4.11.0"
 
     //androidX
     constraintVersion = '1.1.3'
@@ -28,8 +28,8 @@ ext {
     coroutinesVersion = '1.3.7'
     coroutinesTestVersion = '1.3.7'
     fragmentTestVersion = '1.2.5'
-    hilt = "2.31-alpha"
-    hilt_lifecycle_viewmodel = "1.0.0-alpha03"
+    hilt = "2.38.1"
+    hilt_lifecycle_viewmodel = "1.0.0-alpha01"
 
     //kotlin std lib
     kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -43,9 +43,10 @@ ext {
     mockitoVersion = '2.8.47'
 
     //compose
-    composeVersion = "1.0.0-beta01"
+    composeVersion = "1.0.0"
     activityComposeVersion = "1.3.0-alpha02"
     snapHelperVersion = "0.4.1"
+    accompanistVersion = "0.17.0"
 
     compose = [
             ui        : "androidx.compose.ui:ui:$composeVersion",
@@ -58,6 +59,11 @@ ext {
                          "androidx.compose.material:material-icons-core:$composeVersion",
                          "androidx.compose.material:material-icons-extended:$composeVersion"],
             snapHelper: "com.github.aakarshrestha:compose-pager-snap-helper:$snapHelperVersion"
+    ]
+
+    accompanist = [
+            pager          : "com.google.accompanist:accompanist-pager:$accompanistVersion",
+            pagerIndicators: "com.google.accompanist:accompanist-pager-indicators:$accompanistVersion"
     ]
 
     libs = [

@@ -6,22 +6,24 @@
         <entry key="../../../../layout/compose-model-1616917042451.xml" value="0.25" />
         <entry key="../../../../layout/compose-model-1617354841344.xml" value="0.1" />
         <entry key="../../../../layout/compose-model-1617422063593.xml" value="0.1" />
-        <entry key="../../../../layout/compose-model-1618064357036.xml" value="0.5" />
-        <entry key="../../../../layout/compose-model-1618066763823.xml" value="0.1" />
-        <entry key="../../../../layout/compose-model-1625934985418.xml" value="0.33" />
-        <entry key="../../../../layout/compose-model-1625935800771.xml" value="0.22" />
-        <entry key="../../../../layout/compose-model-1626010748011.xml" value="0.22" />
-        <entry key="../../../../layout/compose-model-1626011434676.xml" value="0.5" />
-        <entry key="../../../../layout/compose-model-1626012137038.xml" value="0.22" />
-        <entry key="../../../../layout/compose-model-1627150132474.xml" value="0.2" />
-        <entry key="../../../../layout/compose-model-1629549458447.xml" value="0.30532094594594594" />
-        <entry key="app/src/main/res/drawable/ic_search.xml" value="0.30277777777777776" />
-        <entry key="app/src/main/res/drawable/ic_star.xml" value="0.30277777777777776" />
+        <entry key="../../../../layout/compose-model-1629549370954.xml" value="0.17905405405405406" />
+        <entry key="../../../../layout/compose-model-1629551152028.xml" value="0.20861486486486486" />
+        <entry key="../../../../layout/compose-model-1629643122194.xml" value="0.45" />
+        <entry key="../../../../layout/compose-model-1629645011115.xml" value="0.11993243243243243" />
+        <entry key="../../../../layout/compose-model-1629645057131.xml" value="0.11993243243243243" />
+        <entry key="../../../../layout/compose-model-1629645080608.xml" value="0.11993243243243243" />
+        <entry key="../../../../layout/compose-model-1629732054888.xml" value="0.75" />
+        <entry key="../../../../layout/compose-model-1629737909850.xml" value="0.12035472972972973" />
+        <entry key="../../../../layout/compose-model-1629737965695.xml" value="0.12035472972972973" />
+        <entry key="../../../../layout/compose-model-1629738080717.xml" value="1.0" />
+        <entry key="../../../../layout/compose-model-1629739471307.xml" value="0.22888513513513514" />
+        <entry key="../../../../layout/compose-model-1629739808871.xml" value="0.22888513513513514" />
+        <entry key="../../../../layout/compose-model-1629739837284.xml" value="0.22888513513513514" />
       </map>
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio java home" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

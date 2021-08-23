@@ -1,4 +1,4 @@
-package com.abrahamlay.movielicious.domain
+package com.abrahamlay.gojekclone.domain
 
 import org.junit.Test
 

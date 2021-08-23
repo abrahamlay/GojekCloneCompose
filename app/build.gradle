@@ -72,17 +72,17 @@ android {
     productFlavors {
         development {
             dimension "env"
-            applicationId "com.abrahamlay.movielicious.movieliciouscompose.dev"
+            applicationId "com.abrahamlay.gojekclone.app.dev"
             buildConfigField("String", "API_BASE_URL", config.env.dev.baseurl)
         }
         staging {
             dimension "env"
-            applicationId "com.abrahamlay.movielicious.movieliciouscompose.dev"
+            applicationId "com.abrahamlay.gojekclone.app.dev"
             buildConfigField("String", "API_BASE_URL", config.env.staging.baseurl)
         }
         production {
             dimension "env"
-            applicationId 'com.abrahamlay.movielicious.movieliciouscompose'
+            applicationId 'com.abrahamlay.gojekclone.app'
             buildConfigField("String", "API_BASE_URL", config.env.prod.baseurl)
         }
     }
@@ -116,6 +116,10 @@ dependencies {
     implementation compose.material
     implementation compose.snapHelper
 
+    //accompanist
+    implementation accompanist.pager
+    implementation accompanist.pagerIndicators
+
     //navigation
     implementation support.navigationFragment
     implementation support.navigationUi
@@ -124,6 +128,8 @@ dependencies {
     implementation libs.retrofit
     implementation libs.okhttp
     implementation libs.gson
+
+    implementation libs.glide
 
     //rxjava
     implementation libs.rxjava

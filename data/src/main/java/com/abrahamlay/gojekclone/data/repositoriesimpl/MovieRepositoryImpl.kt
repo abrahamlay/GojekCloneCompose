@@ -1,0 +1,60 @@
+package com.abrahamlay.gojekclone.data.repositoriesimpl
+
+import com.abrahamlay.gojekclone.data.mapper.DetailMovieMapper
+import com.abrahamlay.gojekclone.data.mapper.MovieMapper
+import com.abrahamlay.gojekclone.data.mapper.ReviewMapper
+import com.abrahamlay.gojekclone.data.mapper.VideoMapper
+import com.abrahamlay.gojekclone.data.remote.MovieApi
+import com.abrahamlay.gojekclone.domain.entities.DetailMovieModel
+import com.abrahamlay.gojekclone.domain.entities.MovieModel
+import com.abrahamlay.gojekclone.domain.entities.ReviewModel
+import com.abrahamlay.gojekclone.domain.entities.VideoModel
+import com.abrahamlay.gojekclone.domain.repositories.MovieRepository
+import io.reactivex.Flowable
+import javax.inject.Inject
+
+/**
+ * Created by Abraham Lay on 2020-06-09.
+ */
+
+
+class MovieRepositoryImpl @Inject constructor(
+    private val api: MovieApi,
+//    private val movieDao: MovieDao,
+    private val movieMapper: MovieMapper,
+    private val reviewMapper: ReviewMapper,
+    private val videoMapper: VideoMapper,
+    private val detailMovieMapper: DetailMovieMapper
+) :
+    MovieRepository {
+
+    override fun getPopularMovies(apiKey: String): Flowable<List<com.abrahamlay.gojekclone.domain.entities.MovieModel>?> =
+        api.getPopularMovies(apiKey).map(movieMapper)
+
+    override fun getTopRatedMovies(apiKey: String): Flowable<List<com.abrahamlay.gojekclone.domain.entities.MovieModel>?> =
+        api.getTopRatedMovies(apiKey).map(movieMapper)
+
+    override fun getNowPlayingMovies(apiKey: String): Flowable<List<com.abrahamlay.gojekclone.domain.entities.MovieModel>?> =
+        api.getNowPlayingMovies(apiKey).map(movieMapper)
+
+    override fun getReviews(apiKey: String, movieId: Int): Flowable<List<com.abrahamlay.gojekclone.domain.entities.ReviewModel>> =
+        api.getReviews(movieId, apiKey).map(reviewMapper)
+
+    override fun getVideo(apiKey: String, movieId: Int): Flowable<List<com.abrahamlay.gojekclone.domain.entities.VideoModel>> =
+        api.getVideo(movieId, apiKey).map(videoMapper)
+
+    override fun getMovieDetails(apiKey: String, movieId: Int): Flowable<com.abrahamlay.gojekclone.domain.entities.DetailMovieModel> =
+        api.getMovieDetails(movieId, apiKey).map(detailMovieMapper)
+
+//    override fun getFavoriteMovies(): Flowable<List<MovieModel>?> =
+//        movieDao.selectFavoriteMovie()
+//
+//    override fun getFavoriteMovie(movieId: Int): Flowable<MovieModel?> =
+//        movieDao.select(movieId)
+//
+//    override fun insertFavoriteMovie(movieModel: MovieModel) =
+//        movieDao.insert(movieModel)
+//
+//    override fun deleteFavoriteMovie(movieModel: MovieModel): Int =
+//        movieDao.delete(movieModel)
+}

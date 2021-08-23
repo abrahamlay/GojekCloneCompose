@@ -1,4 +1,4 @@
-package com.abrahamlay.movielicious.data
+package com.abrahamlay.gojekclone.data
 
 import org.junit.Test
 
