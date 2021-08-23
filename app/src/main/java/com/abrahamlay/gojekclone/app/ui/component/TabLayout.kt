@@ -10,14 +10,13 @@ import androidx.compose.material.Tab
 import androidx.compose.material.TabPosition
 import androidx.compose.material.TabRow
 import androidx.compose.material.Text
-import androidx.compose.runtime.*
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.abrahamlay.gojekclone.app.ui.theme.Green
 import com.abrahamlay.gojekclone.app.ui.theme.GreenSecondary
@@ -29,21 +28,23 @@ import kotlinx.coroutines.launch
 @ExperimentalPagerApi
 class TabLayout {
 
+    private val indicatorHeight = 30.dp
+    private val indicatorPathHeight = 40.dp
+    private val tabLayoutHeight = 64.dp
+    private val cornerRadius = 40.dp
+    private val indicatorPadding = 12.dp
+    private val indicatorPathPadding = 8.dp
+
     @Composable
     fun CustomHomeTab(
-        tabs: List<TabItem> = listOf(
-            TabItem.Home,
-            TabItem.Promo,
-            TabItem.Order,
-            TabItem.Chat
-        ),
+        tabs: List<TabItem>,
         pagerState: PagerState
     ) {
         val scope = rememberCoroutineScope()
         TabRow(
             selectedTabIndex = pagerState.currentPage,
             modifier = Modifier
-                .height(48.dp)
+                .height(tabLayoutHeight)
                 .fillMaxWidth(),
             indicator = { tabPositions ->
                 TabIndicator(tabs, tabPositions, pagerState.currentPage)
@@ -59,18 +60,18 @@ class TabLayout {
 
                     val shape = when (index) {
                         0 -> RoundedCornerShape(
-                            topStart = 16.dp,
-                            bottomStart = 16.dp
+                            topStart = cornerRadius,
+                            bottomStart = cornerRadius
                         )
                         tabs.lastIndex -> RoundedCornerShape(
-                            topEnd = 16.dp,
-                            bottomEnd = 16.dp
+                            topEnd = cornerRadius,
+                            bottomEnd = cornerRadius
                         )
                         else -> RectangleShape
                     }
 
-                    val paddingStart = if (index == 0) 6.dp else 0.dp
-                    val paddingEnd = if (index == tabs.lastIndex) 6.dp else 0.dp
+                    val paddingStart = if (index == 0) indicatorPathPadding else 0.dp
+                    val paddingEnd = if (index == tabs.lastIndex) indicatorPathPadding else 0.dp
 
                     Box {
                         Box(
@@ -78,7 +79,7 @@ class TabLayout {
                                 .fillMaxWidth()
                                 .padding(start = paddingStart, end = paddingEnd)
                                 .clip(shape)
-                                .height(28.dp)
+                                .height(indicatorPathHeight)
                                 .background(color = GreenSecondary)
                         )
                         Text(
@@ -91,7 +92,6 @@ class TabLayout {
             }
         }
     }
-
 
     @Composable
     fun TabContent(
@@ -118,15 +118,17 @@ class TabLayout {
             targetValue = currentTabPosition.left,
             animationSpec = tween(durationMillis = 250, easing = FastOutSlowInEasing)
         )
+
+
         Box(
             Modifier
                 .fillMaxWidth()
                 .wrapContentSize(Alignment.CenterStart)
                 .offset(x = indicatorOffset.value)
                 .width(currentTabWidth.value)
-                .padding(start = 8.dp, end = 8.dp)
-                .clip(RoundedCornerShape(16.dp))
-                .height(24.dp)
+                .padding(start = indicatorPadding, end = indicatorPadding)
+                .clip(RoundedCornerShape(cornerRadius))
+                .height(indicatorHeight)
                 .background(color = Color.White)
         ) {
             Text(
