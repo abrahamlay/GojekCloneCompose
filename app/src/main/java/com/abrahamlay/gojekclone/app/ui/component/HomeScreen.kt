@@ -1,26 +1,25 @@
 package com.abrahamlay.gojekclone.app.ui.component
 
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.ExperimentalUnitApi
-import androidx.compose.ui.unit.TextUnit
-import androidx.compose.ui.unit.TextUnitType
+import com.abrahamlay.gojekclone.app.ui.component.home.PaymentHomeModule
+import com.abrahamlay.gojekclone.app.ui.component.home.SearchBar
 
 @ExperimentalUnitApi
-@Preview
+@Preview(showBackground = false, showSystemUi = false)
 @Composable
-fun HomeScreen(){
-    Box(modifier = Modifier
-        .fillMaxWidth()
-        .fillMaxHeight()) {
-        Text(text = "Home", fontSize = TextUnit(20F, TextUnitType.Sp),modifier = Modifier.align(
-            Alignment.Center))
+fun HomeScreen() {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight()
+    ) {
+        SearchBar()
+        PaymentHomeModule()
     }
 }

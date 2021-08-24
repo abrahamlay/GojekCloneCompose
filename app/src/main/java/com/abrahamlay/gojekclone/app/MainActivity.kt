@@ -12,6 +12,7 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.ExperimentalUnitApi
 import com.abrahamlay.gojekclone.app.ui.component.TabItem
 import com.abrahamlay.gojekclone.app.ui.component.TabLayout
 import com.abrahamlay.gojekclone.app.ui.theme.AppComposeTheme
@@ -20,6 +21,7 @@ import com.google.accompanist.pager.rememberPagerState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
+@ExperimentalUnitApi
 @ExperimentalPagerApi
 @ExperimentalCoroutinesApi
 @AndroidEntryPoint

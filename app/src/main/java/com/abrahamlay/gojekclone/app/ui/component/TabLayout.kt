@@ -17,14 +17,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.unit.ExperimentalUnitApi
 import androidx.compose.ui.unit.dp
 import com.abrahamlay.gojekclone.app.ui.theme.Green
 import com.abrahamlay.gojekclone.app.ui.theme.GreenSecondary
+import com.abrahamlay.gojekclone.app.ui.theme.text_14_normal
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.PagerState
 import kotlinx.coroutines.launch
 
+@ExperimentalUnitApi
 @ExperimentalPagerApi
 class TabLayout {
 
@@ -85,7 +88,8 @@ class TabLayout {
                         Text(
                             tab.title,
                             modifier = Modifier.align(Alignment.Center),
-                            color = Color.White
+                            color = Color.White,
+                            style = text_14_normal
                         )
                     }
                 }
@@ -134,7 +138,7 @@ class TabLayout {
             Text(
                 tabs[tabIndex].title,
                 modifier = Modifier.align(Alignment.Center),
-                color = Green
+                color = Green, style = text_14_normal
             )
         }
     }
