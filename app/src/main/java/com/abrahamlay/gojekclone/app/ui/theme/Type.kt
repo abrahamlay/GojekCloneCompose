@@ -48,6 +48,12 @@ val text_16_medium = TextStyle(
     fontSize = 16.sp
 )
 
+val text_12_bold = TextStyle(
+    fontFamily = fonts,
+    fontWeight = FontWeight.Bold,
+    fontSize = 12.sp
+)
+
 val text_12_medium = TextStyle(
     fontFamily = fonts,
     fontWeight = FontWeight.Medium,

@@ -14,9 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.abrahamlay.gojekclone.app.R
-import com.abrahamlay.gojekclone.app.ui.theme.Black
-import com.abrahamlay.gojekclone.app.ui.theme.Grey
-import com.abrahamlay.gojekclone.app.ui.theme.text_14_bold
+import com.abrahamlay.gojekclone.app.ui.theme.*
 
 
 @Preview
@@ -33,7 +31,7 @@ fun SearchBar() {
                 .padding(end = 16.dp)
                 .widthIn(310.dp, Dp.Infinity)
                 .background(Grey, RoundedCornerShape(40.dp))
-                .border(1.dp, Black, RoundedCornerShape(40.dp))
+                .border(1.dp, Black40, RoundedCornerShape(40.dp))
         ) {
             Image(
                 modifier = Modifier
@@ -48,7 +46,7 @@ fun SearchBar() {
                     .padding(end = 8.dp),
                 text = "Find services, food, or places",
                 style = text_14_bold,
-                color = Black
+                color = Black40
             )
         }
         Image(

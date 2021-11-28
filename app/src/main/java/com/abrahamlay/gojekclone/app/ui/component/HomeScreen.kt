@@ -9,7 +9,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.ExperimentalUnitApi
 import com.abrahamlay.gojekclone.app.ui.component.home.PaymentHomeModule
 import com.abrahamlay.gojekclone.app.ui.component.home.SearchBar
+import com.google.accompanist.pager.ExperimentalPagerApi
 
+@ExperimentalPagerApi
 @ExperimentalUnitApi
 @Preview(showBackground = false, showSystemUi = false)
 @Composable
