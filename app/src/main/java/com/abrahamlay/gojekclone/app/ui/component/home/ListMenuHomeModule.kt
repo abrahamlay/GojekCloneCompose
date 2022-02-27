@@ -10,8 +10,12 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.*
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.ModalBottomSheetLayout
+import androidx.compose.material.ModalBottomSheetState
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -19,19 +23,17 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.abrahamlay.gojekclone.app.R
 import com.abrahamlay.gojekclone.app.ui.theme.Black
 import com.abrahamlay.gojekclone.app.ui.theme.text_14_normal
-import kotlinx.coroutines.coroutineScope
+import com.google.accompanist.pager.ExperimentalPagerApi
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
 @ExperimentalMaterialApi
 @ExperimentalFoundationApi
 @Composable
-fun ListMenuHomeModule(bottomState: ModalBottomSheetState) {
+fun ListMenuHomeModule(bottomState: ModalBottomSheetState, isBottomSheet: Boolean) {
     val listMenu = listOf<MenuItem>(
         MenuItem("GoRide", R.drawable.ic_menu_goride),
         MenuItem("GoCar", R.drawable.ic_menu_gocar),
@@ -44,10 +46,16 @@ fun ListMenuHomeModule(bottomState: ModalBottomSheetState) {
     )
 
     Box(
-        modifier = Modifier
-            .height(200.dp)
-            .padding(top = 16.dp)
-            .fillMaxWidth()
+        modifier = if (isBottomSheet)
+            Modifier
+                .fillMaxHeight()
+                .padding(top = 16.dp)
+                .fillMaxWidth()
+        else
+            Modifier
+                .height(200.dp)
+                .padding(top = 16.dp)
+                .fillMaxWidth()
     ) {
         LazyVerticalGrid(cells = GridCells.Fixed(4)) {
             items(listMenu) {
@@ -61,18 +69,16 @@ fun ListMenuHomeModule(bottomState: ModalBottomSheetState) {
 @Composable
 private fun ItemMenu(menuItem: MenuItem, bottomState: ModalBottomSheetState) {
     val context = LocalContext.current
+    val scope = rememberCoroutineScope()
     Column(
         modifier = Modifier
             .padding(top = 16.dp)
             .clickable(role = Role.Button) {
                 if (menuItem.name == "More")
-                    runBlocking {
-                        coroutineScope {
-                            launch {
-                                bottomState.show()
-                            }
-                        }
-                    } else Toast
+                    scope.launch {
+                        bottomState.show()
+                    }
+                else Toast
                     .makeText(context, menuItem.name, Toast.LENGTH_SHORT)
                     .show()
             },
@@ -96,19 +102,25 @@ private fun ItemMenu(menuItem: MenuItem, bottomState: ModalBottomSheetState) {
     }
 }
 
+@ExperimentalPagerApi
 @ExperimentalFoundationApi
 @ExperimentalMaterialApi
-@Preview
 @Composable
-fun BottomSheetListMenu() {
-    val bottomState = rememberModalBottomSheetState(ModalBottomSheetValue.Hidden)
+fun BottomSheetListMenu(
+    bottomState: ModalBottomSheetState,
+    sheetContent: @Composable ColumnScope.() -> Unit,
+    content: @Composable ColumnScope.() -> Unit
+) {
     ModalBottomSheetLayout(
         sheetState = bottomState,
-        sheetContent = {
-            ListMenuHomeModule(bottomState)
-        }
+        sheetContent = sheetContent
     ) {
-        ListMenuHomeModule(bottomState)
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .fillMaxHeight(),
+            content = content
+        )
     }
 }
 

@@ -8,6 +8,7 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
@@ -22,6 +23,7 @@ import com.google.accompanist.pager.rememberPagerState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
+@ExperimentalMaterialApi
 @ExperimentalFoundationApi
 @ExperimentalUnitApi
 @ExperimentalPagerApi

@@ -1,6 +1,4 @@
 
-@
-app/build.gradle,f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164
 z
 Japp/src/main/java/com/abrahamlay/gojekclone/app/ui/component/ChatScreen.kt,4/0/40e067c13c2b380aa2bf83eb686faa4de1d4d38a
 {
@@ -21,3 +19,5 @@ q
 Aapp/src/main/java/com/abrahamlay/gojekclone/app/ui/theme/Color.kt,8/4/844614b0223107150126d2b36e0c505107855f21
 p
 @app/src/main/java/com/abrahamlay/gojekclone/app/ui/theme/Type.kt,2/a/2a7d7b3991f999a358550d7202ea0870fcb9a555
+q
+Aapp/src/main/java/com/abrahamlay/gojekclone/app/ui/theme/Theme.kt,0/8/0824d78b3f762c30445ad29ecb288a9c0ea2fee6

@@ -13,7 +13,6 @@ def config = new ConfigSlurper().parse(cprops)
 
 android {
     compileSdkVersion androidCompileSdkVersion
-    buildToolsVersion androidBuildToolsVersion
     defaultConfig {
         minSdkVersion androidMinSdkVersion
         targetSdkVersion androidTargetSdkVersion

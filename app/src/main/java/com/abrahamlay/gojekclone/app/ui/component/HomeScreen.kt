@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.ModalBottomSheetValue
+import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -27,8 +29,14 @@ fun HomeScreen() {
             .fillMaxWidth()
             .fillMaxHeight()
     ) {
-        SearchBarModule()
-        PaymentHomeModule()
-        BottomSheetListMenu()
+        val bottomState = rememberModalBottomSheetState(ModalBottomSheetValue.Hidden)
+        BottomSheetListMenu(bottomState,
+            sheetContent = {
+                ListMenuHomeModule(bottomState, true)
+            }) {
+            SearchBarModule()
+            PaymentHomeModule()
+            ListMenuHomeModule(bottomState, false)
+        }
     }
 }

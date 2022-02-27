@@ -7,10 +7,7 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Tab
-import androidx.compose.material.TabPosition
-import androidx.compose.material.TabRow
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -28,6 +25,7 @@ import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.PagerState
 import kotlinx.coroutines.launch
 
+@ExperimentalMaterialApi
 @ExperimentalFoundationApi
 @ExperimentalUnitApi
 @ExperimentalPagerApi
