@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -21,6 +22,7 @@ import com.google.accompanist.pager.rememberPagerState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
+@ExperimentalFoundationApi
 @ExperimentalUnitApi
 @ExperimentalPagerApi
 @ExperimentalCoroutinesApi
@@ -43,6 +45,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    @ExperimentalFoundationApi
     @Preview
     @ExperimentalCoroutinesApi
     @Composable

@@ -106,7 +106,7 @@ private fun PaymentModuleButton(
         Column() {
             Image(
                 modifier = Modifier
-                    .size(50.dp)
+                    .size(40.dp)
                     .align(Alignment.CenterHorizontally)
                     .padding(start = 8.dp, end = 8.dp, top = 8.dp),
                 painter = painterResource(id = id),

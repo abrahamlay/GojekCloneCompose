@@ -1,16 +1,22 @@
 package com.abrahamlay.gojekclone.app.ui.component
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.ExperimentalUnitApi
+import com.abrahamlay.gojekclone.app.ui.component.home.BottomSheetListMenu
+import com.abrahamlay.gojekclone.app.ui.component.home.ListMenuHomeModule
 import com.abrahamlay.gojekclone.app.ui.component.home.PaymentHomeModule
-import com.abrahamlay.gojekclone.app.ui.component.home.SearchBar
+import com.abrahamlay.gojekclone.app.ui.component.home.SearchBarModule
 import com.google.accompanist.pager.ExperimentalPagerApi
 
+@ExperimentalMaterialApi
+@ExperimentalFoundationApi
 @ExperimentalPagerApi
 @ExperimentalUnitApi
 @Preview(showBackground = false, showSystemUi = false)
@@ -21,7 +27,8 @@ fun HomeScreen() {
             .fillMaxWidth()
             .fillMaxHeight()
     ) {
-        SearchBar()
+        SearchBarModule()
         PaymentHomeModule()
+        BottomSheetListMenu()
     }
 }

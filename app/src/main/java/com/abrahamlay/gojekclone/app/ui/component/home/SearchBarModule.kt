@@ -19,7 +19,7 @@ import com.abrahamlay.gojekclone.app.ui.theme.*
 
 @Preview
 @Composable
-fun SearchBar() {
+fun SearchBarModule() {
     Row(
         Modifier
             .fillMaxWidth()
